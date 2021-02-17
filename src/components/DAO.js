@@ -30,11 +30,41 @@ const DaoProposalsTitle = styled.div`
 `
 
 const DaoProposals = styled.div`
-  font-size: large;
-  background-color: green;
+  display: flex;
+  background-color: orange;
   padding: 1%;
   margin: 1%;
+  
+  align-items: center;
+  justify-content: space-between;
+
 `
+
+const PropTitle = styled.div`
+  font-size: large;
+  font-family: monospace;
+
+`
+
+const Votes = styled.div`
+  display: flex;
+`
+
+const VotesAgainst = styled.div`
+  font-size: large;
+  color: red;
+  margin-right: 1px;
+
+`
+
+const VotesFor = styled.div`
+  font-size: large;
+  color: green;
+  margin-right: 1px;
+`
+
+//border: 2px solid #000;
+//border-radius: 8px;
 
 
 const DAO = () => {
@@ -44,7 +74,7 @@ const DAO = () => {
   
   //const proposals = result?.data?.daos?.proposals
 
-  useEffect(() => {
+  useMemo(() => {
     getProposals({ variables: { id: id } })
   }, [])
   
@@ -69,7 +99,26 @@ const DAO = () => {
 
 
         {result.data.daos[0].proposals.map(prop => {
-          return <DaoProposals key={prop.id}> {prop.title} </DaoProposals>
+          return (
+          <>
+          <DaoProposals key={prop.id}> 
+
+            <PropTitle>
+              {prop.title}
+            </PropTitle>
+            
+            <Votes>
+              <VotesFor>
+              {prop.votesFor} ⏫
+              </VotesFor>
+
+              <VotesAgainst>
+                {prop.votesAgainst} ⏬
+              </VotesAgainst>
+            </Votes>
+
+          </DaoProposals>
+          </>)
         })}
       
 

@@ -6,12 +6,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 import DAOS from "./components/DAOS"
 import DAO from "./components/DAO"
+import Proposal from "./components/Proposal"
 
 const App = () => {
 
   const { loading, data } = useQuery(ALL_DAOS)
 
-  const daos = React.useMemo(() => data?.daos)
+  const daos = data?.daos
 
   if (loading) {
     return (
@@ -31,6 +32,10 @@ const App = () => {
 
         <Route path="/:id">
           <DAO />
+        </Route>
+
+        <Route path="/:id/:propid">
+          <Proposal />
         </Route>
       </Switch>
     </BrowserRouter>
