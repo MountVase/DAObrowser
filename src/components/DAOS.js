@@ -1,8 +1,9 @@
-import React, { useState } from "react"
-import { useQuery } from "@apollo/client"
-import { ALL_DAOS } from "../queries"
+import React, { useMemo } from "react"
+import { useTable, useSortBy } from "react-table"
 
 import styled from "styled-components"
+
+import { dataz } from "./dataz"
 
 const DaoContainer = styled.div`
   display: flex;
@@ -42,48 +43,128 @@ const DaoMembers = styled.div`
 
 `
 
+const DaoTable = styled.table`
+  display: flex;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: yellow;
 
-const DAOS = () => {
-    const { loading, data } = useQuery(ALL_DAOS)
+  margin-top: 1%;
+  justify-content: space-between;
+  align-items: center;
+  height: 5%;
+`
 
-   
-    if (loading) {
-        return (<div>skeleton!</div>)
-    }
-   
-    console.log(data?.daos)
-    return (
-        <>
-          {data?.daos.map(dao => {
-            const name = dao.name
-            const members = dao.reputationHoldersCount
-            const token = dao.nativeToken.name
-            const supply = dao.nativeToken.supply
+const TableHeadButton = styled.button`
+	background-color: #feffde;
+	border-radius: 30px;
 
-            return (
-              <DaoContainer>
-              <DaoBox>
-                <DaoTitle>
-                  {name}
-                </DaoTitle>
-              </DaoBox>
+	color: black;
+	text-decoration: none;
+  margin: 2%;
+
+  font-size: larger;
+
+  :hover {
+    background-color: #fbff85;
+  }
+`
 
 
-              <DaoMembers>
-                  members {members}
-                </DaoMembers>
-              </DaoContainer>
-            )
-          })}
 
-        </>
+const DAOS = ({ daos }) => {
+
+    console.log(daos)
+
+
+    const columns = React.useMemo(() => [
+      {
+        Header: 'DAO',
+        accessor: 'name'
+      },
+
+      {
+        Header: 'Members',
+        accessor: 'reputationHoldersCount'
+      }
+    ]
     )
 
+
+
+    const {
+      getTableProps,
+      getTableBodyProps,
+      headerGroups,
+      rows,
+      prepareRow,
+    } = useTable(
+    {
+      columns,
+      data: daos,
+    },
+    useSortBy,
+    );
+  
+    return (
+      <table {...getTableProps()}>
+        <thead>
+          {headerGroups.map(headerGroup => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row, i) => {
+            prepareRow(row)
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map(cell => {
+                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                })}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    );
+   
+    // return (
+    //     <>
+    //       {data?.daos.map(dao => {
+    //         const name = dao.name
+    //         const members = dao.reputationHoldersCount
+    //         const token = dao.nativeToken.name
+    //         const supply = dao.nativeToken.supply
+
+    //         return (
+    //           <DaoContainer>
+    //           <DaoBox>
+    //             <DaoTitle>
+    //               {name}
+    //             </DaoTitle>
+    //           </DaoBox>
+
+
+    //           <DaoMembers>
+    //               members {members}
+    //             </DaoMembers>
+    //           </DaoContainer>
+    //         )
+    //       })}
+
+    //     </>
+    // )
+    
 
 
 }
 
 
 export default DAOS
-
 
