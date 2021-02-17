@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom"
 import { PROPOSALS } from "../queries"
 import styled from "styled-components"
 
+import Toggle from "./Toggle"
+
 
 
 const DaoContainer = styled.div`
@@ -63,8 +65,22 @@ const VotesFor = styled.div`
   margin-right: 1px;
 `
 
+const Info = styled.div`
+  background-color: brown;
+  margin-top: 5%;
+`
+
 //border: 2px solid #000;
 //border-radius: 8px;
+
+
+
+const extendedInfo = (id) => {
+
+  return (
+    <div>hey all!</div>
+  )
+}
 
 
 const DAO = () => {
@@ -101,8 +117,9 @@ const DAO = () => {
         {result.data.daos[0].proposals.map(prop => {
           return (
           <>
+          
           <DaoProposals key={prop.id}> 
-
+            
             <PropTitle>
               {prop.title}
             </PropTitle>
