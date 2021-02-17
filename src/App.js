@@ -30,13 +30,15 @@ const App = () => {
           <DAOS daos={daos}/>
         </Route>
 
+        <Route path="/:id/:propid">
+          <Proposal />
+        </Route>
+
         <Route path="/:id">
           <DAO />
         </Route>
 
-        <Route path="/:id/:propid">
-          <Proposal />
-        </Route>
+
       </Switch>
     </BrowserRouter>
     </>

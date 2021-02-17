@@ -31,6 +31,28 @@ query daoProposals($id: String!) {
     }
   }
 }
+`
+
+
+export const PROPOSAL_DETAILS = gql`
+
+query proposalInfo($id: String!, $propid: String!) {
+    daos (where: { id: $id }) {
+
+        proposals (where: { id: $propid}) {
+            id
+            title
+            proposer
+            votesFor
+            votesAgainst
+            description
+            executedAt
+            votes {
+              outcome
+            }
+          }
+        }
+    }
 
 `
 
@@ -47,3 +69,5 @@ const FIND_PERSON = gql`
     }
   }
 `
+
+

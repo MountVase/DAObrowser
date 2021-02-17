@@ -1,12 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, {  useMemo } from "react"
 
 import { useLazyQuery } from "@apollo/client"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
 import { PROPOSALS } from "../queries"
 import styled from "styled-components"
-
-import Toggle from "./Toggle"
 
 
 
@@ -65,17 +63,26 @@ const VotesFor = styled.div`
   margin-right: 1px;
 `
 
-const Info = styled.div`
-  background-color: brown;
-  margin-top: 5%;
-`
 
+const StyledLink = styled(Link)`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+`
 //border: 2px solid #000;
 //border-radius: 8px;
 
+const Details = styled.div`
+    max-height: ${props => props.open ? "100%" : "0"};
+    overflow: hidden;
+    padding: ${props => props.open ? "25px 0" : "0"};
+    transition: all 0.3s ease-out;
+`;
 
 
-const extendedInfo = (id) => {
+
+const extendedInfo = (e) => {
+  e.preventDefault()
 
   return (
     <div>hey all!</div>
@@ -118,10 +125,10 @@ const DAO = () => {
           return (
           <>
           
-          <DaoProposals key={prop.id}> 
+          <DaoProposals key={prop.id} onClick={extendedInfo}> 
             
             <PropTitle>
-              {prop.title}
+              <StyledLink to={`/${id}/${prop.id}`}>{prop.title}</StyledLink>
             </PropTitle>
             
             <Votes>
