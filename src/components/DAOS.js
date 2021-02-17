@@ -1,9 +1,9 @@
 import React, { useMemo } from "react"
 import { useTable, useSortBy } from "react-table"
 
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-import { dataz } from "./dataz"
 
 const DaoContainer = styled.div`
   display: flex;
@@ -17,59 +17,41 @@ const DaoContainer = styled.div`
   height: 5%;
 `
 
-const DaoBox = styled.div`
-    display: flex;
-    width: 25%;
-    height: 6%;
-    background-color: orange;
+const Styles = styled.div`
+  padding: 1rem;
 
-    margin-left: 5%;
 
-`
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
 
-const DaoTitle = styled.div`
-  font-size: x-large;
-  font-family: monospace;
-`
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
 
-const DaoMembers = styled.div`
-    display: flex;
-    width: 25%;
-    height: 6%;
-    background-color: blue;
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
 
-    font-size: x-large;
-    font-family: monospace;
-
-`
-
-const DaoTable = styled.table`
-  display: flex;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: yellow;
-
-  margin-top: 1%;
-  justify-content: space-between;
-  align-items: center;
-  height: 5%;
-`
-
-const TableHeadButton = styled.button`
-	background-color: #feffde;
-	border-radius: 30px;
-
-	color: black;
-	text-decoration: none;
-  margin: 2%;
-
-  font-size: larger;
-
-  :hover {
-    background-color: #fbff85;
+      :last-child {
+        border-right: 0;
+      }
+    }
   }
 `
 
+const StyledLink = styled(Link)`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+`
 
 
 const DAOS = ({ daos }) => {
@@ -105,24 +87,35 @@ const DAOS = ({ daos }) => {
     },
     useSortBy,
     );
-  
+    
+    //console.log((getTableBodyProps()))
+    // able to access original objects id property inside cell mapping by;:
+    // cell.row.original.id
+
     return (
+      <Styles>
+      <DaoContainer>
       <table {...getTableProps()}>
+
+      
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
+
+                
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}
-                className={
-                  column.isSorted
-                    ? column.isSortedDesc
-                      ? "sort-desc"
-                      : "sort-asc"
-                    : ""
-                }              
                 >
                   {column.render('Header')}
-                  </th>
+                  <span>        
+                   {column.isSorted
+                 ? column.isSortedDesc
+                  ? ' 🔽'
+                  : ' 🔼'
+                  : ''}
+                    </span>
+                </th>
+                
               ))}
             </tr>
           ))}
@@ -133,14 +126,23 @@ const DAOS = ({ daos }) => {
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                })}
+                  return <td {...cell.getCellProps()}>
+                            <StyledLink to={`/${cell.row.original.id}`} color="black">
+                            {cell.render('Cell')}
+                            </StyledLink>
+                            </td>
+                        })}
               </tr>
             )
           })}
         </tbody>
       </table>
+      </DaoContainer>
+      </Styles>
     );
+
+
+
    
     // return (
     //     <>
