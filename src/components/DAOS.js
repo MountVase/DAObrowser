@@ -88,7 +88,7 @@ const DAOS = ({ daos }) => {
         accessor: 'reputationHoldersCount'
       }
     ]
-    )
+    , [])
 
 
 
@@ -111,8 +111,16 @@ const DAOS = ({ daos }) => {
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}
+                className={
+                  column.isSorted
+                    ? column.isSortedDesc
+                      ? "sort-desc"
+                      : "sort-asc"
+                    : ""
+                }              
+                >
                   {column.render('Header')}
                   </th>
               ))}
