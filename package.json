@@ -1,6 +1,5 @@
 {
   "name": "activation",
-  "proxy": "https://api.thegraph.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
