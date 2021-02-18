@@ -19,14 +19,6 @@ Every page makes a separate graphQL query with *[apollo client](https://www.apol
 
 ![Image](public/pics/activation2.png)
 
-### Background
-
-I've been fascinated by theGraph recently. Blockchain data is usually hard to search for, find, and/or manipulate, but with some smart indexing and a GraphQL API this is solved quite well. I like tinkering with how web3 fits into the frontend of things, and while browsing the Alchemy app I'd thought I'd make a DAO explorer/viewer utilizing theGraph.
-
-**Motivation** 
-
-A decentralized web3 collective seems like such a cool idea, that I have to try to join! Something about me, I'm a former finance student, turned full-stack dev now into everything web3. After participating in the AAVE marketmake hackathon, I'd like to get more involved in the space, and this seems like a great way to do that.
-
 ### Queries
 
 Queries can be found in queries.js in /src folder.
@@ -35,6 +27,15 @@ GraphQL playground is a useful way to get familiar, and test out queries. [https
 > Here's one query that I used
 
 ![image](public/pics/thegraph.png)
+
+### Background
+
+I've been fascinated by theGraph recently. Blockchain data is usually hard to search for, find, and/or manipulate, but with some smart indexing and a GraphQL API this is solved quite well. I like tinkering with how web3 fits into the frontend of things, and while browsing the Alchemy app I'd thought I'd make a DAO explorer/viewer utilizing theGraph.
+
+**Motivation** 
+
+A decentralized web3 collective seems like such a cool idea, that I have to try to join! Something about me, I'm a former finance student, turned full-stack dev now into everything web3. After participating in the AAVE marketmake hackathon, I'd like to get more involved in the space, and this seems like a great way to do that.
+
 
 ### Styles
 
