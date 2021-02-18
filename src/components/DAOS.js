@@ -107,7 +107,7 @@ const DAOS = ({ daos }) => {
 
         Feel free to change that to another subgraph from daostack. <br/>
           
-        <StyledA href="https://github.com/mountvase"
+        <StyledA href="https://github.com/MountVase/DAObrowser"
           target="_blank"
           rel="noopener noreferrer"
           >
