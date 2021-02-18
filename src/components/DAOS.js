@@ -2,15 +2,13 @@ import React, { useMemo } from "react"
 import { useTable, useSortBy } from "react-table"
 
 import { Link } from "react-router-dom"
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
-const Body = styled.div`
-  height: 100%;
-  width: 100%;
-
-  background-color: #fcf1c7;
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #fcf1c7;
+  }
 `
-
 
 const DaoContainer = styled.div`
   display: flex;
@@ -102,7 +100,9 @@ const DAOS = ({ daos }) => {
     // cell.row.original.id
 
     return (
-    <Body>
+      <>
+      <GlobalStyle />
+      
       <Styles>
       <DaoContainer>
       <table {...getTableProps()}>
@@ -152,7 +152,7 @@ const DAOS = ({ daos }) => {
       </table>
       </DaoContainer>
       </Styles>
-      </Body>
+      </>
     );
 
 

@@ -1,16 +1,19 @@
 import React, { useMemo } from "react"
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 import {Link, useParams } from "react-router-dom"
 import { useLazyQuery } from "@apollo/client"
+import Loading from "../components/Loading"
 
 import { PROPOSAL_DETAILS } from "../queries" 
+
 
 const DaoContainer = styled.div`
   
   margin-left: 5%;
   margin-right: 5%;
-  background-color: yellow;
+
+
   margin-top: 5%;
 `
 
@@ -28,6 +31,21 @@ const PropDesc = styled.div`
   margin-top: 5%;
 `
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #fcf1c7;
+  }
+`
+
+const Description = styled.div`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+  margin-top: 5%;
+`
+
+
+
 const Proposal = () => {
 
   const propid = useParams().propid
@@ -43,7 +61,7 @@ const Proposal = () => {
 
   if (!result.data) {
     return (
-      <div>hold on a bit more!</div>
+      <Loading />
     )
   }
   
@@ -53,10 +71,16 @@ const Proposal = () => {
   return (
     <>
 
+    <GlobalStyle />
+
     <DaoContainer>
       <PropTitle>
         {result.data.daos[0].proposals[0].title}
       </PropTitle>
+
+      <Description>
+        Description:
+      </Description>
 
       <PropDesc>
         {result.data.daos[0].proposals[0].description}

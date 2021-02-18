@@ -6,7 +6,9 @@ import styled, { keyframes } from "styled-components"
 const Body = styled.div`
 height: 100vh;
 width: 100vw;
-
+display: flex;
+justify-content: center;
+align-items: center;
 background-color: #fcf1c7;
 `
 

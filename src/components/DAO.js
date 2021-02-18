@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom"
 
 import { PROPOSALS } from "../queries"
 import styled from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
 import Loading from "./Loading"
 
@@ -13,14 +14,14 @@ const DaoContainer = styled.div`
   
   margin-left: 5%;
   margin-right: 5%;
-  background-color: yellow;
-  margin-top: 5%;
+  
 `
 
 const DaoTitle = styled.div`
   color: black;
   font-size: xx-large;
   font-family: monospace;
+  margin-top: 5%;
 `
 
 const DaoProposalsTitle = styled.div`
@@ -32,12 +33,16 @@ const DaoProposalsTitle = styled.div`
 
 const DaoProposals = styled.div`
   display: flex;
-  background-color: orange;
+  
   padding: 1%;
   margin: 1%;
   
   align-items: center;
   justify-content: space-between;
+
+  :hover {
+    background-color: #fffae6;
+  }
 
 `
 
@@ -83,6 +88,14 @@ const Details = styled.div`
 
 
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #fcf1c7;
+  }
+`
+
+
+
 
 const DAO = () => {
   const id = useParams().id
@@ -104,7 +117,9 @@ const DAO = () => {
   }
 
   return (
+    
     <>
+    <GlobalStyle />
     <DaoContainer>
       <DaoTitle>
         {result.data.daos[0].name}
@@ -141,7 +156,8 @@ const DAO = () => {
       
 
     </DaoContainer>
-    </>
+    
+  </>
   )
 }
 

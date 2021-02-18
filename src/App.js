@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 import DAOS from "./components/DAOS"
 import DAO from "./components/DAO"
 import Proposal from "./components/Proposal"
+import Loading from "./components/Loading"
 
 const App = () => {
 
@@ -16,9 +17,7 @@ const App = () => {
 
   if (loading) {
     return (
-      <div>
-        hey there!
-      </div>
+      <Loading />
     )
   }
   
