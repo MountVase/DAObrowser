@@ -1,49 +1,11 @@
 import React, { useMemo } from "react"
 import styled, { createGlobalStyle } from "styled-components"
 
-import {Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useLazyQuery } from "@apollo/client"
 import Loading from "../components/Loading"
 
 import { PROPOSAL_DETAILS } from "../queries" 
-
-
-const DaoContainer = styled.div`
-  
-  margin-left: 5%;
-  margin-right: 5%;
-
-
-  margin-top: 5%;
-`
-
-const PropTitle = styled.div`
-  color: black;
-  font-size: xx-large;
-  font-family: monospace;
-`
-
-const PropDesc = styled.div`
-  color: black;
-  font-size: larger;
-  font-family: monospace;
-
-  margin-top: 5%;
-`
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: #fcf1c7;
-  }
-`
-
-const Description = styled.div`
-  color: black;
-  font-size: larger;
-  font-family: monospace;
-  margin-top: 5%;
-`
-
 
 
 const Proposal = () => {
@@ -93,3 +55,51 @@ const Proposal = () => {
 }
 
 export default Proposal
+
+
+
+const DaoContainer = styled.div`
+  
+  margin-left: 5%;
+  margin-right: 5%;
+
+
+  margin-top: 5%;
+`
+
+const PropTitle = styled.div`
+  color: black;
+  font-size: xx-large;
+  font-family: monospace;
+  
+`
+
+const PropDesc = styled.div`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+  line-height: 1.8;
+
+  margin-top: 5%;
+  margin-right: 25%;
+
+  :hover {
+    background-color: #fffae6;
+  }
+`
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #fcf1c7;
+  }
+`
+
+const Description = styled.div`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+  margin-top: 5%;
+  
+`
+
+

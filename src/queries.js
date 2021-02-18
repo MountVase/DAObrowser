@@ -35,6 +35,8 @@ query daoProposals($id: String!) {
 `
 
 
+
+
 export const PROPOSAL_DETAILS = gql`
 
 query proposalInfo($id: String!, $propid: String!) {
@@ -54,8 +56,20 @@ query proposalInfo($id: String!, $propid: String!) {
           }
         }
     }
-
 `
+
+export const MEMBERS = gql`
+
+query members($id: String!) {
+    daos (where: { id: $id }) {
+        name
+        reputationHolders {
+            address
+        }
+    }
+}
+`
+
 
 const FIND_PERSON = gql`
   query findPersonByName($nameToSearch: String!) {

@@ -9,8 +9,10 @@ import DAO from "./components/DAO"
 import Proposal from "./components/Proposal"
 import Loading from "./components/Loading"
 import Navigation from "./components/Navigation"
+import Members from "./components/Members"
 
 const App = () => {
+
 
   const { loading, data } = useQuery(ALL_DAOS)
 
@@ -31,10 +33,17 @@ const App = () => {
           <DAOS daos={daos}/>
         </Route>
 
-        <Route path="/:id/:propid">
+
+        <Route  path="/:id/members">
+          <Navigation />
+          <Members />
+        </Route>
+
+        <Route  path="/:id/:propid">
           <Navigation />
           <Proposal />
         </Route>
+
 
         <Route path="/:id">
           <Navigation />

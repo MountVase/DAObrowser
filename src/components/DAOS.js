@@ -4,63 +4,6 @@ import { useTable, useSortBy } from "react-table"
 import { Link } from "react-router-dom"
 import styled, { createGlobalStyle } from "styled-components"
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: #fcf1c7;
-  }
-`
-
-const DaoContainer = styled.div`
-  display: flex;
-  margin-left: 5%;
-  margin-right: 5%;
- 
-
-  width: 50%;
-  margin-top: 1%;
-  justify-content: center;
-  align-items: center;
-  height: 5%;
-`
-
-const Styles = styled.div`
-  padding: 2rem;
-
-
-  table {
-    border-spacing: 0;
-    
-
-    tr {
-
-      }
-    }
-
-    th,
-    td {
-      margin: 0;
-      padding: 0.5rem;
-
-    }
-  }
-  
-`
-
-
-const Hover = styled.div`
-  padding: 2px;
-
-  :hover {
-    background-color: #fffae6;
-  }
-`
-
-const StyledLink = styled(Link)`
-  color: black;
-  font-size: larger;
-  font-family: monospace;
-`
-
 
 const DAOS = ({ daos }) => {
 
@@ -156,35 +99,6 @@ const DAOS = ({ daos }) => {
       </>
     );
 
-
-
-   
-    // return (
-    //     <>
-    //       {data?.daos.map(dao => {
-    //         const name = dao.name
-    //         const members = dao.reputationHoldersCount
-    //         const token = dao.nativeToken.name
-    //         const supply = dao.nativeToken.supply
-
-    //         return (
-    //           <DaoContainer>
-    //           <DaoBox>
-    //             <DaoTitle>
-    //               {name}
-    //             </DaoTitle>
-    //           </DaoBox>
-
-
-    //           <DaoMembers>
-    //               members {members}
-    //             </DaoMembers>
-    //           </DaoContainer>
-    //         )
-    //       })}
-
-    //     </>
-    // )
     
 
 
@@ -192,4 +106,61 @@ const DAOS = ({ daos }) => {
 
 
 export default DAOS
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #fcf1c7;
+  }
+`
+
+const DaoContainer = styled.div`
+  display: flex;
+  margin-left: 5%;
+  margin-right: 5%;
+ 
+
+  width: 50%;
+  margin-top: 1%;
+  justify-content: center;
+  align-items: center;
+  height: 5%;
+`
+
+const Styles = styled.div`
+  padding: 2rem;
+
+
+  table {
+    border-spacing: 0;
+    
+
+    tr {
+
+      }
+    }
+
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+
+    }
+  }
+  
+`
+
+
+const Hover = styled.div`
+  padding: 2px;
+
+  :hover {
+    background-color: #fffae6;
+  }
+`
+
+const StyledLink = styled(Link)`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+`
 
