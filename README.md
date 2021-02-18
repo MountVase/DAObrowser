@@ -1,6 +1,6 @@
 # DAObrowser
 
-Part of dORGs activation challenge. [> dORG](https://dorg.tech/)
+Part of dORGs activation challenge. [> dORG](https://docs.dorg.tech/lifecycle/activation)
 
 **deployed at [daobrowser.herokuapp.com/](https://daobrowser.herokuapp.com/)**
 
@@ -42,7 +42,7 @@ Styling is for now done with styled-components, and is quite clumsily stored in 
 
 ### Thanks
 
-Comments/Advice/Feedback is greatly appreciated, hit me up on Telegram if you got some! [telegram](https://t.me/marakuas)
+Comments/Advice/Feedback is greatly appreciated, hit me up on Telegram if you got some! [Telegram](https://t.me/marakuas)
 
 #### Available Scripts
 
