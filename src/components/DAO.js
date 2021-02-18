@@ -24,7 +24,7 @@ const DaoTitle = styled.div`
   margin-top: 5%;
 `
 
-const DaoProposalsTitle = styled.div`
+const Header = styled.div`
   color: black;
   font-size: larger;
   font-family: monospace;
@@ -46,10 +46,20 @@ const DaoProposals = styled.div`
 
 `
 
+const DateTitle = styled.div`
+
+`
+
+
 const PropTitle = styled.div`
   font-size: large;
   font-family: monospace;
 
+`
+
+const Dates = styled.div`
+  font-size: medium;
+  font-family: monospace;
 `
 
 const Votes = styled.div`
@@ -75,18 +85,6 @@ const StyledLink = styled(Link)`
   font-size: larger;
   font-family: monospace;
 `
-//border: 2px solid #000;
-//border-radius: 8px;
-
-const Details = styled.div`
-    max-height: ${props => props.open ? "100%" : "0"};
-    overflow: hidden;
-    padding: ${props => props.open ? "25px 0" : "0"};
-    transition: all 0.3s ease-out;
-`
-
-
-
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -125,20 +123,29 @@ const DAO = () => {
         {result.data.daos[0].name}
       </DaoTitle>
 
-      <DaoProposalsTitle>
+      <Header>
         Proposals:
-      </DaoProposalsTitle>
+      </Header>
 
 
         {result.data.daos[0].proposals.map(prop => {
+
+          const date = new Date(prop.executedAt * 1000)
+
           return (
           <>
           
           <DaoProposals key={prop.id} > 
             
-            <PropTitle>
-              <StyledLink to={`/${id}/${prop.id}`}>{prop.title}</StyledLink>
-            </PropTitle>
+            <DateTitle>
+              <PropTitle>
+                <StyledLink to={`/${id}/${prop.id}`}>{prop.title}</StyledLink>
+              </PropTitle>
+
+              <Dates>
+                {date.toDateString()}
+              </Dates>
+            </DateTitle>
             
             <Votes>
               <VotesFor>

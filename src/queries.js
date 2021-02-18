@@ -28,6 +28,7 @@ query daoProposals($id: String!) {
       proposer
       votesFor
       votesAgainst
+      executedAt
     }
   }
 }

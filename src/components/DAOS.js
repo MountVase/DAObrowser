@@ -44,7 +44,8 @@ const Styles = styled.div`
     }
   }
   
-  `
+`
+
 
 const Hover = styled.div`
   padding: 2px;
@@ -102,7 +103,7 @@ const DAOS = ({ daos }) => {
     return (
       <>
       <GlobalStyle />
-      
+
       <Styles>
       <DaoContainer>
       <table {...getTableProps()}>
