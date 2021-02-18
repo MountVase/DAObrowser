@@ -11,9 +11,6 @@ import Loading from "./Loading"
 
 
 
-
-
-
 const DAO = () => {
   const id = useParams().id
   // now let's fetch a new query for the specific DAO's proposals, members, etc.
@@ -57,17 +54,19 @@ const DAO = () => {
         Proposals:
       </Header>
 
-
-        {result.data.daos[0].proposals.map(prop => {
+        {result.data.daos[0].proposals?.length === 0 ? <NoProposalsFound />
+        : 
+        result.data.daos[0].proposals.map(prop => {
+        
 
           const date = new Date(prop.executedAt * 1000)
-
+          
           return (
           <>
           
           <DaoProposals key={prop.id} > 
             
-            <DateTitle>
+            <DateTitleContainer>
               <PropTitle>
                 <StyledLink to={`/${id}/${prop.id}`}>{prop.title}</StyledLink>
               </PropTitle>
@@ -75,7 +74,7 @@ const DAO = () => {
               <Dates>
                 {date.toDateString()}
               </Dates>
-            </DateTitle>
+            </DateTitleContainer>
             
             <Votes>
               <VotesFor>
@@ -89,7 +88,8 @@ const DAO = () => {
 
           </DaoProposals>
           </>)
-        })}
+        })  
+        }
       
 
     </DaoContainer>
@@ -99,6 +99,31 @@ const DAO = () => {
 }
 
 export default DAO
+
+
+const NoProposalsFound = () => {
+
+  const date = new Date()
+  return (
+    <>
+      <DaoProposals>
+
+      <DateTitleContainer>
+        <PropTitle>
+          Looks like there aren't any proposals yet in this DAO.. Go out there and participate!
+        </PropTitle>
+
+        <Dates>
+         {date.toDateString()}
+        </Dates>
+    </DateTitleContainer>
+    </DaoProposals>
+
+
+    </>
+  )
+
+}
 
 
 const DaoContainer = styled.div`
@@ -136,7 +161,7 @@ const DaoProposals = styled.div`
 
 `
 
-const DateTitle = styled.div`
+const DateTitleContainer = styled.div`
 
 `
 

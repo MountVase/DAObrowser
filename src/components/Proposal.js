@@ -58,6 +58,8 @@ export default Proposal
 
 
 
+
+
 const DaoContainer = styled.div`
   
   margin-left: 5%;
