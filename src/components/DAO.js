@@ -6,6 +6,7 @@ import { useParams, Link } from "react-router-dom"
 import { PROPOSALS } from "../queries"
 import styled from "styled-components"
 
+import Loading from "./Loading"
 
 
 const DaoContainer = styled.div`
@@ -77,17 +78,10 @@ const Details = styled.div`
     overflow: hidden;
     padding: ${props => props.open ? "25px 0" : "0"};
     transition: all 0.3s ease-out;
-`;
+`
 
 
 
-const extendedInfo = (e) => {
-  e.preventDefault()
-
-  return (
-    <div>hey all!</div>
-  )
-}
 
 
 const DAO = () => {
@@ -104,9 +98,9 @@ const DAO = () => {
   console.log(result.data)
 
   if (!result.data) {
-    return (<div>
-      hold one second
-    </div>)
+    return (
+      <Loading />
+    )
   }
 
   return (
@@ -125,7 +119,7 @@ const DAO = () => {
           return (
           <>
           
-          <DaoProposals key={prop.id} onClick={extendedInfo}> 
+          <DaoProposals key={prop.id} > 
             
             <PropTitle>
               <StyledLink to={`/${id}/${prop.id}`}>{prop.title}</StyledLink>

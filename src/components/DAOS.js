@@ -4,32 +4,37 @@ import { useTable, useSortBy } from "react-table"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
+const Body = styled.div`
+  height: 100%;
+  width: 100%;
+
+  background-color: #fcf1c7;
+`
+
 
 const DaoContainer = styled.div`
   display: flex;
   margin-left: 5%;
   margin-right: 5%;
-  background-color: yellow;
+ 
 
+  width: 50%;
   margin-top: 1%;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 5%;
 `
 
 const Styles = styled.div`
-  padding: 1rem;
+  padding: 2rem;
 
 
   table {
     border-spacing: 0;
-    border: 1px solid black;
+    
 
     tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
+
       }
     }
 
@@ -37,13 +42,17 @@ const Styles = styled.div`
     td {
       margin: 0;
       padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
 
-      :last-child {
-        border-right: 0;
-      }
     }
+  }
+  
+  `
+
+const Hover = styled.div`
+  padding: 2px;
+
+  :hover {
+    background-color: #fffae6;
   }
 `
 
@@ -93,6 +102,7 @@ const DAOS = ({ daos }) => {
     // cell.row.original.id
 
     return (
+    <Body>
       <Styles>
       <DaoContainer>
       <table {...getTableProps()}>
@@ -106,13 +116,14 @@ const DAOS = ({ daos }) => {
                 
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
-                  {column.render('Header')}
+                  <Hover>{column.render('Header')}</Hover>
+                  
                   <span>        
                    {column.isSorted
                  ? column.isSortedDesc
                   ? ' 🔽'
                   : ' 🔼'
-                  : ''}
+                  : '〽️'}
                     </span>
                 </th>
                 
@@ -127,9 +138,11 @@ const DAOS = ({ daos }) => {
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return <td {...cell.getCellProps()}>
+                        <Hover>
                             <StyledLink to={`/${cell.row.original.id}`} color="black">
                             {cell.render('Cell')}
                             </StyledLink>
+                        </Hover>
                             </td>
                         })}
               </tr>
@@ -139,6 +152,7 @@ const DAOS = ({ daos }) => {
       </table>
       </DaoContainer>
       </Styles>
+      </Body>
     );
 
 
