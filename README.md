@@ -42,7 +42,7 @@ Styling is for now done with styled-components, and is quite clumsily stored in 
 
 ### Thanks
 
-Comments/Advice/Feedback is greatly appreciated, hit me up on Telegram if you got some!  
+Comments/Advice/Feedback is greatly appreciated, hit me up on Telegram if you got some! [telegram](https://t.me/marakuas)
 
 #### Available Scripts
 
