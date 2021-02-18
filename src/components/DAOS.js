@@ -45,6 +45,7 @@ const DAOS = ({ daos }) => {
 
     return (
       <>
+      <BigContainer>
       <GlobalStyle />
 
       <Styles>
@@ -96,6 +97,26 @@ const DAOS = ({ daos }) => {
       </table>
       </DaoContainer>
       </Styles>
+
+
+      <CopyContainer>
+        <Copy>
+        <b>DAObrowser!</b> <br/> 
+
+        All info that you see fetched with dynamically GraphQL from this DAOstack subgraph: https://thegraph.com/explorer/subgraph/daostack/v41_9_xdai. 
+
+        Feel free to change that to another subgraph from daostack. <br/>
+          
+        <StyledA href="https://github.com/mountvase"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
+          github.com/mountvase
+          </StyledA>
+        </Copy>
+      </CopyContainer>
+
+      </BigContainer>
       </>
     );
 
@@ -113,17 +134,52 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const CopyContainer = styled.div`
+  display: flex;
+
+  margin-right: 5%;
+  width: 25%;
+  margin-top: 2.66%;
+
+`
+
+const StyledA = styled.a`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+
+`
+
+
+const Copy = styled.div`
+  color: black;
+  font-size: larger;
+  font-family: monospace;
+  line-height: 1.8;
+
+  margin-top: 5%;
+  margin-right: 25%;
+
+`
+
+
+const BigContainer = styled.div`
+
+  display: flex;
+
+  justify-content: space-around;
+`
+
+
 const DaoContainer = styled.div`
   display: flex;
   margin-left: 5%;
   margin-right: 5%;
  
-
-  width: 50%;
   margin-top: 1%;
   justify-content: center;
   align-items: center;
-  height: 5%;
+
 `
 
 const Styles = styled.div`
