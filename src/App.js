@@ -8,6 +8,7 @@ import DAOS from "./components/DAOS"
 import DAO from "./components/DAO"
 import Proposal from "./components/Proposal"
 import Loading from "./components/Loading"
+import Navigation from "./components/Navigation"
 
 const App = () => {
 
@@ -26,14 +27,17 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
+          <Navigation />
           <DAOS daos={daos}/>
         </Route>
 
         <Route path="/:id/:propid">
+          <Navigation />
           <Proposal />
         </Route>
 
         <Route path="/:id">
+          <Navigation />
           <DAO />
         </Route>
 
