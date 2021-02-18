@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# DAObrowser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Part of dORGs activation challenge. [> dORG](https://dorg.tech/)
 
-## Available Scripts
+**deployed at [daobrowser.herokuapp.com/](https://daobrowser.herokuapp.com/)**
+
+![Image](public/pics/activation1.png)
+
+### Time Frame
+
+~12 hours.
+
+### Features
+
+Ability to browse DAOs from daostack subgraph, filter by member size.
+View specific DAOs proposals, their voting stats, descriptions. Members can also be browsed.
+
+Every page makes a separate graphQL query with *[apollo client](https://www.apollographql.com/docs/react/)* to subgraph. This happens surprisingly fast, and could probably be done in a single query in the beginning, and pass the fetched object into other components.
+
+![Image](public/pics/activation2.png)
+
+### Background
+
+I've been fascinated by theGraph recently. Blockchain data is usually hard to search for, find, and/or manipulate, but with some smart indexing and a GraphQL API this is solved quite well. I like tinkering with how web3 fits into the frontend of things, and while browsing the Alchemy app I'd thought I'd make a DAO explorer/viewer utilizing theGraph.
+
+**Motivation** 
+
+A decentralized web3 collective seems like such a cool idea, that I have to try to join! Something about me, I'm a former finance student, turned full-stack dev now into everything web3. After participating in the AAVE marketmake hackathon, I'd like to get more involved in the space, and this seems like a great way to do that.
+
+### Queries
+
+Queries can be found in queries.js in /src folder.
+GraphQL playground is a useful way to get familiar, and test out queries. [https://thegraph.com/explorer/subgraph/daostack/v41_9_xdai](https://thegraph.com/explorer/subgraph/daostack/v41_9_xdai)
+
+> Here's one query that I used
+
+![image](public/pics/thegraph.png)
+
+### Styles
+
+Styling is for now done with styled-components, and is quite clumsily stored in the same file as the components. I've placed them after the actual rendering components for now, which might clear things up or further complicate them depending on who you are :) 
+
+### Thanks
+
+Comments/Advice/Feedback is greatly appreciated, hit me up on Telegram if you got some!  
+
+#### Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+#### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -103,7 +103,7 @@ const DAOS = ({ daos }) => {
         <Copy>
         <b>DAObrowser!</b> <br/> 
 
-        All info that you see fetched with dynamically GraphQL from this DAOstack subgraph: https://thegraph.com/explorer/subgraph/daostack/v41_9_xdai. 
+        All info that you see fetched with dynamically GraphQL from this DAOstack subgraph: <AnotherLink>https://thegraph.com/explorer/subgraph/daostack/v41_9_xdai.</AnotherLink> <br/>
 
         Feel free to change that to another subgraph from daostack. <br/>
           
@@ -148,6 +148,11 @@ const StyledA = styled.a`
   font-size: larger;
   font-family: monospace;
 
+`
+
+const AnotherLink = styled.a`
+  color: black;
+  font-family: monospace;
 `
 
 
