@@ -45,8 +45,8 @@ const Navigation = () => {
         <Container>
             <Text>[ &nbsp;  </Text>
             <StyledLink to="/"> home &nbsp;</StyledLink>
-            <StyledLink exact to={id ? id : ''}>DAO &nbsp;</StyledLink>
-            <StyledLink to={`${id}/members`}>Members &nbsp;</StyledLink>
+            {id ? <StyledLink to={id ? `/${id}` : ''}>DAO &nbsp;</StyledLink> : ""}
+            {id ? <StyledLink to={id ? `/${id}/members` : ""}>Members &nbsp;</StyledLink> : ""}
             <Text> ] </Text>
 
         </Container>
